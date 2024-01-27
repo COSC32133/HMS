@@ -10,6 +10,11 @@ const docRoutes = require("./routes/doctors");
 const Routes = require("./routes/nurses");
 const Route = require("./routes/surgeons");
 
+//vimansa routes
+const postsRoutes = require("../backend/routes/posts");
+
+
+
 //app middleware
 app.use(bodyParser.json());
 app.use(cors());
@@ -18,6 +23,11 @@ app.use(cors());
 app.use(docRoutes);
 app.use(Routes);
 app.use(Route);
+
+
+//vimansa middlewares
+app.use(postsRoutes);
+
 
 const PORT = 9000;
 const DB_URL =
