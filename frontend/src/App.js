@@ -26,8 +26,13 @@ import NavBar from "./components/NavBar";
 import CreatePost from "./components/CreatePost";
 import EditPost from "./components/EditPost";
 import EquiHome from "./components/EquiHome";
-
 import PostDetails from "./components/PostDetails";
+
+//avishka
+import Createguard from "./components/Createguard";
+import editguard from "./components/Editguard";
+import secHome from "./components/sechome";
+import AddGuardList from "./components/AddGuardList";
 
 export default class App extends Component {
   render() {
@@ -60,6 +65,13 @@ export default class App extends Component {
           <Route path="/addeq" component={CreatePost}></Route>
           <Route path="/editeq/:id" component={EditPost}></Route>
           <Route path="/posteq/:id" component={PostDetails}></Route>
+
+          <Route path="/sechome" exact component={secHome}></Route>
+          <Route path="/add" component={Createguard}></Route>
+          <Route path="/editsec/:id" component={editguard}></Route>
+          <Route path="/post/:id" component={Secdetails}></Route>
+          <Route path="/schedule" component={Schedule}></Route>
+          <Route path="/addguard" component={AddGuardList}></Route>
 
         </div>
       </BrowserRouter>
