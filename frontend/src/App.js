@@ -21,10 +21,12 @@ import SurgeonDetails from "./components/SurgeonDetails";
 import NavBar from "./components/NavBar";
 //import Footer from './components/Footer'
 
+
 //vimansa
 import CreatePost from "./components/CreatePost";
 import EditPost from "./components/EditPost";
 import EquiHome from "./components/EquiHome";
+import PostDetails from "./components/PostDetails";
 
 //avishka
 import Createguard from "./components/Createguard";
@@ -32,7 +34,6 @@ import editguard from "./components/Editguard";
 import secHome from "./components/sechome";
 import AddGuardList from "./components/AddGuardList";
 
-import PostDetails from "./components/PostDetails";
 export default class App extends Component {
   render() {
     return (
@@ -59,6 +60,7 @@ export default class App extends Component {
           ></Route>
           <Route path="/surgeon/:id" exact component={SurgeonDetails}></Route>
 
+
           <Route path="/eqhome" component={EquiHome}></Route>
           <Route path="/addeq" component={CreatePost}></Route>
           <Route path="/editeq/:id" component={EditPost}></Route>
@@ -70,6 +72,7 @@ export default class App extends Component {
           <Route path="/post/:id" component={Secdetails}></Route>
           <Route path="/schedule" component={Schedule}></Route>
           <Route path="/addguard" component={AddGuardList}></Route>
+
         </div>
       </BrowserRouter>
     );

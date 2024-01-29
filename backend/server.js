@@ -14,7 +14,7 @@ const Route = require("./routes/surgeons");
 const postsRoutes = require("../backend/routes/posts");
 
 //avishka routes
-//const secRoutes = require('./routes/post')
+const secRoutes = require('./routes/post');
 
 //app middleware
 app.use(bodyParser.json());
@@ -25,11 +25,11 @@ app.use(docRoutes);
 app.use(Routes);
 app.use(Route);
 
-//vimansa middlewares
-app.use(postsRoutes);
-
 //avishka middleware
 app.use("/post", require("./routes/post"));
+
+//vimansa middlewares
+app.use(postsRoutes);
 
 const PORT = 9000;
 const DB_URL =
