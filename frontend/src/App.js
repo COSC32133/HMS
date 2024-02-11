@@ -20,7 +20,24 @@ import EditSurgeon from "./components/EditSurgeon";
 import SurgeonDetails from "./components/SurgeonDetails";
 import NavBar from "./components/NavBar";
 //import Footer from './components/Footer'
-
+import wards from "./components/wards";
+import surgeonWard from "./components/surgeonWard";
+import surgicalwardnurse from "./components/surgicalwardnurse";
+import editNurseSchedule from "./components/editNurseSchedule";
+import NurseWard from "./components/NurseWard";
+import SurgeonsWard from "./components/SurgeonsWard";
+import surgicalwarddoctors from "./components/surgicalwarddoctors";
+import editSurgeonSchedule from "./components/editSurgeonSchedule";
+import generalward from "./components/generalward";
+import genwarddoctors from "./components/genwarddoctors";
+import editGenSchedule from "./components/editGenSchedule";
+import genwardnurse from "./components/genwardnurse";
+import psychiatricward from "./components/psychiatricward";
+import psychwarddoctors from "./components/psychwarddoctors";
+import psychwardnurse from "./components/psychwardnurse";
+import cancerward from "./components/cancerward";
+import cancerwarddoctors from "./components/cancerwarddoctors";
+import cancerwardnurse from "./components/cancerwardnurse";
 
 //vimansa
 import CreatePost from "./components/CreatePost";
@@ -33,6 +50,7 @@ import Createguard from "./components/Createguard";
 import editguard from "./components/Editguard";
 import secHome from "./components/sechome";
 import AddGuardList from "./components/AddGuardList";
+
 
 export default class App extends Component {
   render() {
@@ -59,6 +77,85 @@ export default class App extends Component {
             component={EditSurgeon}
           ></Route>
           <Route path="/surgeon/:id" exact component={SurgeonDetails}></Route>
+
+          <Route path="/wards" exact component={wards}></Route>
+          <Route path="/ward_surgeon" eaxct component={surgeonWard}></Route>
+          <Route
+            path="/view_surgicalwardnurse"
+            exact
+            component={surgicalwardnurse}
+          ></Route>
+          <Route
+            path="/update_nurseSchedule/:id"
+            exact
+            component={editNurseSchedule}
+          ></Route>
+          <Route
+            path="/save_nurseSched/:id/:name/:wid"
+            exact
+            component={NurseWard}
+          ></Route>
+          <Route
+            path="/save_surgeonSched/:id/:name/:wid"
+            exact
+            component={SurgeonsWard}
+          ></Route>
+          <Route
+            path="/view_surgicalwardsurgeon"
+            exact
+            component={surgicalwarddoctors}
+          ></Route>
+          <Route
+            path="/update_surgeonSchedule/:id"
+            exact
+            component={editSurgeonSchedule}
+          ></Route>
+
+          <Route path="/ward_general/" exact component={generalward}></Route>
+
+          <Route
+            path="/view_genwarddoctors"
+            exact
+            component={genwarddoctors}
+          ></Route>
+          <Route
+            path="/update_genSchedule/:id"
+            exact
+            component={editGenSchedule}
+          ></Route>
+          <Route
+            path="/view_genwardnurse"
+            exact
+            component={genwardnurse}
+          ></Route>
+
+          <Route
+            path="/ward_psychiatric/"
+            exact
+            component={psychiatricward}
+          ></Route>
+          <Route
+            path="/view_psychwarddoctors"
+            exact
+            component={psychwarddoctors}
+          ></Route>
+          <Route
+            path="/view_psychwardnurse"
+            exact
+            component={psychwardnurse}
+          ></Route>
+
+          <Route path="/ward_cancer/" exact component={cancerward}></Route>
+          <Route
+            path="/view_canwarddoctors"
+            eaxct
+            component={cancerwarddoctors}
+          ></Route>
+          <Route
+            path="/view_canwardnurse"
+            exact
+            component={cancerwardnurse}
+          ></Route>
 
 
           <Route path="/eqhome" component={EquiHome}></Route>

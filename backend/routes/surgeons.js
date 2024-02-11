@@ -92,4 +92,73 @@ router.get("/surgeon/:id", (req, res) => {
   });
 });
 
+//schedules
+
+//get Surgeons
+
+router.get("/surgeons/get_surgeons", (req, res) => {
+  Surgeons.find().exec((err, surgeons) => {
+    if (err) {
+      return res.status(400).json({});
+    }
+
+    return res.status(200).json({
+      success: true,
+      existingSurgeons: surgeons,
+    });
+  });
+});
+
+router.get("/surgeons/get_SurgeonSchedule", (req, res) => {
+  Surgeons.find({ wid: "W004" }).exec((err, surgeons) => {
+    if (err) {
+      return res.status(400).json({});
+    }
+
+    return res.status(200).json({
+      success: true,
+      existingSurgeons: surgeons,
+    });
+  });
+});
+
+//update surgeon schedule
+
+router.put("/surgeon/update_surgeonSchedule/:id", (req, res) => {
+  Surgeons.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: req.body,
+    },
+    (err, nurse) => {
+      if (err) {
+        return res.status(400).json({ error: err });
+      }
+
+      return res.status(200).json({
+        success: "Updated successfully",
+      });
+    }
+  );
+});
+
+//get a specific surgeon
+
+router.get("/wardsurgeon/:id", (req, res) => {
+  let surgeonId = req.params.id;
+
+  Surgeons.findById(surgeonId, (err, surgeons) => {
+    if (err) {
+      return res.status(400).json({
+        success: false,
+        err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      surgeons,
+    });
+  });
+});
+
 module.exports = router;
