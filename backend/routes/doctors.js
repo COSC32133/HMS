@@ -92,4 +92,125 @@ router.get("/doctor/:id", (req, res) => {
   });
 });
 
+////scheduless
+
+//get doctors w001
+
+router.get("/doctors/get_generaldoctors", (req, res) => {
+  Doctors.find({ wid: "W001" }).exec((err, doctors) => {
+    if (err) {
+      return res.status(400).json({});
+    }
+
+    return res.status(200).json({
+      success: true,
+      existingDoctors: doctors,
+    });
+  });
+});
+
+router.get("/doctors/get_genSchedule", (req, res) => {
+  Doctors.find({ wid: "W001" }).exec((err, doctors) => {
+    if (err) {
+      return res.status(400).json({});
+    }
+
+    return res.status(200).json({
+      success: true,
+      existingDoctors: doctors,
+    });
+  });
+});
+
+router.put("/doctor/update_docSchedule/:id", (req, res) => {
+  Doctors.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: req.body,
+    },
+    (err, doctor) => {
+      if (err) {
+        return res.status(400).json({ error: err });
+      }
+
+      return res.status(200).json({
+        success: "Updated successfully",
+      });
+    }
+  );
+});
+
+router.get("/warddoctor/:id", (req, res) => {
+  let doctorId = req.params.id;
+
+  Doctors.findById(doctorId, (err, doctors) => {
+    if (err) {
+      return res.status(400).json({
+        success: false,
+        err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      doctors,
+    });
+  });
+});
+
+//get doctors w002
+
+router.get("/doctors/get_psychdoctors", (req, res) => {
+  Doctors.find({ wid: "W002" }).exec((err, doctors) => {
+    if (err) {
+      return res.status(400).json({});
+    }
+
+    return res.status(200).json({
+      success: true,
+      existingDoctors: doctors,
+    });
+  });
+});
+
+router.get("/doctors/get_psychSchedule", (req, res) => {
+  Doctors.find({ wid: "W002" }).exec((err, doctors) => {
+    if (err) {
+      return res.status(400).json({});
+    }
+
+    return res.status(200).json({
+      success: true,
+      existingDoctors: doctors,
+    });
+  });
+});
+
+//get doctors w003
+
+router.get("/doctors/get_cdoctors", (req, res) => {
+  Doctors.find({ wid: "W003" }).exec((err, doctors) => {
+    if (err) {
+      return res.status(400).json({});
+    }
+
+    return res.status(200).json({
+      success: true,
+      existingDoctors: doctors,
+    });
+  });
+});
+
+router.get("/doctors/get_canSchedule", (req, res) => {
+  Doctors.find({ wid: "W003" }).exec((err, doctors) => {
+    if (err) {
+      return res.status(400).json({});
+    }
+
+    return res.status(200).json({
+      success: true,
+      existingDoctors: doctors,
+    });
+  });
+});
+
 module.exports = router;
