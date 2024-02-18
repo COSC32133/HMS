@@ -20,7 +20,24 @@ import EditSurgeon from "./components/EditSurgeon";
 import SurgeonDetails from "./components/SurgeonDetails";
 import NavBar from "./components/NavBar";
 //import Footer from './components/Footer'
-
+import wards from "./components/wards";
+import surgeonWard from "./components/surgeonWard";
+import surgicalwardnurse from "./components/surgicalwardnurse";
+import editNurseSchedule from "./components/editNurseSchedule";
+import NurseWard from "./components/NurseWard";
+import SurgeonsWard from "./components/SurgeonsWard";
+import surgicalwarddoctors from "./components/surgicalwarddoctors";
+import editSurgeonSchedule from "./components/editSurgeonSchedule";
+import generalward from "./components/generalward";
+import genwarddoctors from "./components/genwarddoctors";
+import editGenSchedule from "./components/editGenSchedule";
+import genwardnurse from "./components/genwardnurse";
+import psychiatricward from "./components/psychiatricward";
+import psychwarddoctors from "./components/psychwarddoctors";
+import psychwardnurse from "./components/psychwardnurse";
+import cancerward from "./components/cancerward";
+import cancerwarddoctors from "./components/cancerwarddoctors";
+import cancerwardnurse from "./components/cancerwardnurse";
 
 //vimansa
 import CreatePost from "./components/CreatePost";
@@ -33,11 +50,10 @@ import Createguard from "./components/Createguard";
 import editguard from "./components/Editguard";
 import secHome from "./components/sechome";
 import AddGuardList from "./components/AddGuardList";
-<<<<<<< Updated upstream
-=======
 import Schedule from "./components/Schedule";
 import Secdetails from "./components/Secdetails";
->>>>>>> Stashed changes
+
+
 
 export default class App extends Component {
   render() {
@@ -64,9 +80,6 @@ export default class App extends Component {
             component={EditSurgeon}
           ></Route>
           <Route path="/surgeon/:id" exact component={SurgeonDetails}></Route>
-
-<<<<<<< Updated upstream
-=======
           <Route path="/wards" exact component={wards}></Route>
           <Route path="/ward_surgeon" eaxct component={surgeonWard}></Route>
           <Route
@@ -145,7 +158,6 @@ export default class App extends Component {
             exact
             component={cancerwardnurse}
           ></Route>
->>>>>>> Stashed changes
 
           <Route path="/eqhome" component={EquiHome}></Route>
           <Route path="/addeq" component={CreatePost}></Route>
