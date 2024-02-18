@@ -50,6 +50,9 @@ import Createguard from "./components/Createguard";
 import editguard from "./components/Editguard";
 import secHome from "./components/sechome";
 import AddGuardList from "./components/AddGuardList";
+import Schedule from "./components/Schedule";
+import Secdetails from "./components/Secdetails";
+
 
 
 export default class App extends Component {
@@ -77,7 +80,6 @@ export default class App extends Component {
             component={EditSurgeon}
           ></Route>
           <Route path="/surgeon/:id" exact component={SurgeonDetails}></Route>
-
           <Route path="/wards" exact component={wards}></Route>
           <Route path="/ward_surgeon" eaxct component={surgeonWard}></Route>
           <Route
@@ -157,7 +159,6 @@ export default class App extends Component {
             component={cancerwardnurse}
           ></Route>
 
-
           <Route path="/eqhome" component={EquiHome}></Route>
           <Route path="/addeq" component={CreatePost}></Route>
           <Route path="/editeq/:id" component={EditPost}></Route>
@@ -169,7 +170,6 @@ export default class App extends Component {
           <Route path="/post/:id" component={Secdetails}></Route>
           <Route path="/schedule" component={Schedule}></Route>
           <Route path="/addguard" component={AddGuardList}></Route>
-
         </div>
       </BrowserRouter>
     );

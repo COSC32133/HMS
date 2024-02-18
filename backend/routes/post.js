@@ -1,5 +1,6 @@
 const express = require("express");
 const postdb = require("../models/post");
+const sheduledb = require("../models/shedule");
 
 const router = express.Router();
 
@@ -85,6 +86,97 @@ router.delete("/delete/:id", (req, res) => {
       deletedPost,
     });
   });
+});
+
+// get user who are not assign
+router.get("/freeuser", async (req, res) => {
+  let users = await postdb.find();
+  let shed = await sheduledb.find().populate("post", ["id"]);
+  if (shed) {
+    const freeuser = users.filter((user) => {
+      return !shed.some((sh) => {
+        return sh.post.id == user.id;
+      });
+    });
+    return res.status(200).json({ success: true, freeuser });
+  }
+  return res.status(200).json({ success: true, freeuser: users });
+});
+
+// get shedule of users
+router.get("/getshedule", async (req, res) => {
+  try {
+    let shed = await sheduledb.find().populate("post", ["name"]);
+    if (!shed) {
+      return res
+        .status(500)
+        .json({ success: false, error: "Something went wrong!" });
+    }
+    let time = {
+      am: [],
+      an: [],
+      bm: [],
+      bn: [],
+      cm: [],
+      cn: [],
+    };
+    shed.forEach((sh) => {
+      if (sh.point == "A" && sh.shift == "M") {
+        time.am.push(sh);
+      } else if (sh.point == "A" && sh.shift == "N") {
+        time.an.push(sh);
+      } else if (sh.point == "B" && sh.shift == "M") {
+        time.bm.push(sh);
+      } else if (sh.point == "B" && sh.shift == "N") {
+        time.bn.push(sh);
+      } else if (sh.point == "C" && sh.shift == "M") {
+        time.cm.push(sh);
+      } else if (sh.point == "C" && sh.shift == "N") {
+        time.cn.push(sh);
+      }
+    });
+    return res.status(200).json({ success: true, shedule: time });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ success: false, error: "Something went wrong!" });
+  }
+});
+
+// Add user to shedule
+router.post("/schedule", async (req, res) => {
+  try {
+    const { id, point, shift } = req.body;
+    if (id && point && shift) {
+      const sh = new sheduledb({
+        post: id,
+        point,
+        shift,
+      });
+      await sh.save();
+      return res.status(200).json({ success: true });
+    }
+    return res.status(400).json({ success: false });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ success: false, error: "Something went wrong!" });
+  }
+});
+
+// remove user to shedule
+router.delete("/removeshedule/:id", async (req, res) => {
+  try {
+    await sheduledb.findOneAndDelete({ post: req.params.id });
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ success: false, error: "Something went wrong!" });
+  }
 });
 
 module.exports = router;
