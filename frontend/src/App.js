@@ -33,6 +33,11 @@ import Createguard from "./components/Createguard";
 import editguard from "./components/Editguard";
 import secHome from "./components/sechome";
 import AddGuardList from "./components/AddGuardList";
+<<<<<<< Updated upstream
+=======
+import Schedule from "./components/Schedule";
+import Secdetails from "./components/Secdetails";
+>>>>>>> Stashed changes
 
 export default class App extends Component {
   render() {
@@ -60,6 +65,87 @@ export default class App extends Component {
           ></Route>
           <Route path="/surgeon/:id" exact component={SurgeonDetails}></Route>
 
+<<<<<<< Updated upstream
+=======
+          <Route path="/wards" exact component={wards}></Route>
+          <Route path="/ward_surgeon" eaxct component={surgeonWard}></Route>
+          <Route
+            path="/view_surgicalwardnurse"
+            exact
+            component={surgicalwardnurse}
+          ></Route>
+          <Route
+            path="/update_nurseSchedule/:id"
+            exact
+            component={editNurseSchedule}
+          ></Route>
+          <Route
+            path="/save_nurseSched/:id/:name/:wid"
+            exact
+            component={NurseWard}
+          ></Route>
+          <Route
+            path="/save_surgeonSched/:id/:name/:wid"
+            exact
+            component={SurgeonsWard}
+          ></Route>
+          <Route
+            path="/view_surgicalwardsurgeon"
+            exact
+            component={surgicalwarddoctors}
+          ></Route>
+          <Route
+            path="/update_surgeonSchedule/:id"
+            exact
+            component={editSurgeonSchedule}
+          ></Route>
+
+          <Route path="/ward_general/" exact component={generalward}></Route>
+
+          <Route
+            path="/view_genwarddoctors"
+            exact
+            component={genwarddoctors}
+          ></Route>
+          <Route
+            path="/update_genSchedule/:id"
+            exact
+            component={editGenSchedule}
+          ></Route>
+          <Route
+            path="/view_genwardnurse"
+            exact
+            component={genwardnurse}
+          ></Route>
+
+          <Route
+            path="/ward_psychiatric/"
+            exact
+            component={psychiatricward}
+          ></Route>
+          <Route
+            path="/view_psychwarddoctors"
+            exact
+            component={psychwarddoctors}
+          ></Route>
+          <Route
+            path="/view_psychwardnurse"
+            exact
+            component={psychwardnurse}
+          ></Route>
+
+          <Route path="/ward_cancer/" exact component={cancerward}></Route>
+          <Route
+            path="/view_canwarddoctors"
+            eaxct
+            component={cancerwarddoctors}
+          ></Route>
+          <Route
+            path="/view_canwardnurse"
+            exact
+            component={cancerwardnurse}
+          ></Route>
+>>>>>>> Stashed changes
 
           <Route path="/eqhome" component={EquiHome}></Route>
           <Route path="/addeq" component={CreatePost}></Route>
@@ -72,7 +158,6 @@ export default class App extends Component {
           <Route path="/post/:id" component={Secdetails}></Route>
           <Route path="/schedule" component={Schedule}></Route>
           <Route path="/addguard" component={AddGuardList}></Route>
-
         </div>
       </BrowserRouter>
     );
